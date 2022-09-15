@@ -30,7 +30,8 @@
 
 ![KakaoTalk_20220915_200628435](https://user-images.githubusercontent.com/110081578/190389084-afe88bbe-19ee-4074-91e4-50a6dbda0bbe.jpg)
 ![KakaoTalk_20220915_200628435_01](https://user-images.githubusercontent.com/110081578/190389116-59e5e24a-8663-4dd9-b78d-a11b1e540283.jpg)
-![KakaoTalk_20220915_200628435_02](https://user-images.githubusercontent.com/110081578/190389187-da6ff14c-8aef-4fe1-9026-85c9b2460625.jpg)
+![image](https://user-images.githubusercontent.com/110081578/190405101-6dae7796-ba62-43c0-80f5-fc8e80df0684.png)
+
 
 
 
