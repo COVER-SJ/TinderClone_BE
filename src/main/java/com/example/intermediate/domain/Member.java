@@ -7,15 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Builder
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -26,11 +25,17 @@ public class Member extends Timestamped {
   private Long id;
 
   @Column(nullable = false)
-  private String nickname;
+  private String loginId;
 
   @Column(nullable = false)
   @JsonIgnore
   private String password;
+
+  @Column(nullable = false)
+  private String nickname;
+
+  @Column(nullable = false)
+  private Long sex;
 
   @Override
   public boolean equals(Object o) {

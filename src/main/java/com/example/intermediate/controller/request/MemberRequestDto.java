@@ -15,6 +15,11 @@ public class MemberRequestDto {
   @NotBlank
   @Size(min = 4, max = 12)
   @Pattern(regexp = "[a-zA-Z\\d]*${3,12}")
+  private String loginId;
+
+  @NotBlank
+  @Size(min = 4, max = 12)
+  @Pattern(regexp = "[a-zA-Z\\d]*${3,12}")
   private String nickname;
 
   @NotBlank
@@ -24,4 +29,6 @@ public class MemberRequestDto {
 
   @NotBlank
   private String passwordConfirm;
+
+  private Long sex;
 }

@@ -2,6 +2,7 @@ package com.example.intermediate.service;
 
 import com.example.intermediate.controller.response.MemberResponseDto;
 import com.example.intermediate.domain.Member;
+import com.example.intermediate.domain.Profile;
 import com.example.intermediate.domain.RefreshToken;
 import com.example.intermediate.controller.request.LoginRequestDto;
 import com.example.intermediate.controller.request.MemberRequestDto;
@@ -12,6 +13,8 @@ import com.example.intermediate.repository.MemberRepository;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.example.intermediate.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -25,6 +28,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
 
   private final MemberRepository memberRepository;
+
+  private final ProfileRepository profileRepository;
 
   private final PasswordEncoder passwordEncoder;
 //  private final AuthenticationManagerBuilder authenticationManagerBuilder;
@@ -43,14 +48,21 @@ public class MemberService {
     }
 
     Member member = Member.builder()
+            .loginId(requestDto.getLoginId())
             .nickname(requestDto.getNickname())
-                .password(passwordEncoder.encode(requestDto.getPassword()))
-                    .build();
+            .password(passwordEncoder.encode(requestDto.getPassword()))
+            .sex(requestDto.getSex())
+            .build();
+    Profile profile = Profile.builder()
+            .member(member).build();
     memberRepository.save(member);
+    profileRepository.save(profile);
     return ResponseDto.success(
         MemberResponseDto.builder()
             .id(member.getId())
+            .loginId(member.getLoginId())
             .nickname(member.getNickname())
+            .sex(member.getSex())
             .createdAt(member.getCreatedAt())
             .modifiedAt(member.getModifiedAt())
             .build()
@@ -79,7 +91,9 @@ public class MemberService {
     return ResponseDto.success(
         MemberResponseDto.builder()
             .id(member.getId())
+            .loginId(member.getLoginId())
             .nickname(member.getNickname())
+            .sex(member.getSex())
             .createdAt(member.getCreatedAt())
             .modifiedAt(member.getModifiedAt())
             .build()
