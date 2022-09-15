@@ -26,6 +26,14 @@
 
 <hr>
 
+## ERD
+
+![image](https://user-images.githubusercontent.com/110081578/190406345-f93e5578-fa1c-4178-9a28-031f598d3ef9.png)
+
+
+
+<hr>
+
 ## 와이어프레임
 
 ![KakaoTalk_20220915_200628435](https://user-images.githubusercontent.com/110081578/190389084-afe88bbe-19ee-4074-91e4-50a6dbda0bbe.jpg)
